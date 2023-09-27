@@ -1,7 +1,7 @@
 /* Database schema to keep the structure of entire database. */
 CREATE DATABASE vet_clinic; /*only if not exists*/
 
-CREATE TABLE animals (
+CREATE TABLE IF NOT EXISTS  animals (
 	id INTEGER GENERATED ALWAYS AS IDENTITY,
 	name VARCHAR(100),
 	date_of_birth DATE,
@@ -11,6 +11,6 @@ CREATE TABLE animals (
 	PRIMARY KEY (id)
 );
 
-
-
+ALTER TABLE animals
+ADD COLUMN species varchar(200);
 
