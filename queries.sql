@@ -81,3 +81,34 @@ from animals group by species;
 
 SELECT AVG(escape_attempts) FROM animals WHERE
 EXTRACT (YEAR FROM date_of_birth) BETWEEN 1990 AND 2000;
+
+select name as Melody_Pond_Animals from animals Animal
+JOIN owners OwnerA ON Animal.owner_id = OwnerA.id
+where Animal.owner_id=4;
+
+select * from animals Animal
+JOIN species Specie ON Animal.species_id = Specie.id
+where Specie.id=1; 
+
+select full_name,name from animals Animal
+FULL JOIN owners OwnerA ON Animal.owner_id = OwnerA.id;
+
+select species.name As Species,count(*) as Total_Per_Species
+from species
+JOIN animals ON animals.species_id = species.id
+group by species.name;
+
+select animals.name as Digimon,full_name as Digimon_Owner from animals
+join species
+on animals.species_id=species.id
+join owners on animals.owner_id=owners.id
+where owners.id=2 and animals.species_id=2;
+
+select animals.name as Animal,full_name as Animal_Owner from animals
+join owners on animals.owner_id=owners.id
+where owners.id=5 and animals.escape_attempts=0;
+
+
+select full_name,count(*) as Animals_Number  from animals
+join owners on animals.owner_id=owners.id
+group by (full_name) ORDER BY Animals_Number DESC;
