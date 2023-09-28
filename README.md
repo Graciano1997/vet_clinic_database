@@ -1,5 +1,5 @@
 <center>
-<h1>Vet clinic database: create animals table</h1>
+<h1>Vet clinic database: Query and update animals table</h1>
 </center>
 <!-- TABLE OF CONTENTS -->
 
