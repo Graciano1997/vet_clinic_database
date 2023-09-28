@@ -9,12 +9,12 @@ SELECT * FROM animals WHERE name <> 'Gabumon';
 SELECT * FROM animals WHERE weight_kg<=17.3 AND weight_kg>=10.4;
 
 /* First Transation*/
-BEGIN WORK;
-ALTER TABLE animals 
-RENAME COLUMN species TO unspecified;
-SELECT * FROM animals;
-ROLLBACK;
-END;
+  BEGIN;
+  UPDATE animals
+  SET species = 'unspecified';
+  SELECT species from animals; 
+  ROLLBACK;
+  SELECT species from animals;
 
 /* SECOND Transation*/
 
