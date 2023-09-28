@@ -17,3 +17,7 @@ full_name VARCHAR(200),
 age integer
 );
 
+CREATE TABLE IF NOT EXISTS species(
+id SERIAL PRIMARY KEY,
+name VARCHAR(200)
+);
