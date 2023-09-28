@@ -1,4 +1,4 @@
-/*Queries that provide answers to the questions from all projects.*/
+/*Queries that provide answers to the questiONs FROM all projects.*/
 SELECT * FROM animals WHERE name LIKE '%mon';
 SELECT * FROM animals WHERE EXTRACT(YEAR FROM date_of_birth) BETWEEN 2016 AND 2019;
 SELECT * FROM animals WHERE neutered=true AND escape_attempts<3;
@@ -8,15 +8,15 @@ SELECT * FROM animals WHERE neutered=true;
 SELECT * FROM animals WHERE name <> 'Gabumon';
 SELECT * FROM animals WHERE weight_kg<=17.3 AND weight_kg>=10.4;
 
-/* First Transation*/
+/* First TransatiON*/
   BEGIN;
   UPDATE animals
   SET species = 'unspecified';
-  SELECT species from animals; 
+  SELECT species FROM animals; 
   ROLLBACK;
-  SELECT species from animals;
+  SELECT species FROM animals;
 
-/* SECOND Transation*/
+/* SECOND TransatiON*/
 
 BEGIN;
 UPDATE animals
@@ -26,21 +26,21 @@ WHERE name like '%mon';
 UPDATE animals
 SET species='pokemon'
 WHERE species IS NULL;
-select * from animals;
+SELECT * FROM animals;
 COMMIT;
 END;
-select * from animals;
+SELECT * FROM animals;
 
 /*THIRD TRANSATION*/
 
 BEGIN;
 DELETE FROM animals;
-select * from animals;
+SELECT * FROM animals;
 rollback;
 END;
-select * from animals;
+SELECT * FROM animals;
 
-/*fourth Transation*/
+/*fourth TransatiON*/
 
 BEGIN;
 
@@ -65,50 +65,51 @@ END;
 
 SELECT count(*) AS Animals_number FROM animals;
 
-SELECT COUNT(*) As Never_scaped_animals_number FROM animals
+SELECT COUNT(*) AS Never_scaped_animals_number FROM animals
 where escape_attempts=0;
 
-select AVG(weight_kg) AS Animals_weight_average from animals;
+SELECT AVG(weight_kg) AS Animals_weight_average FROM animals;
 
 SELECT neutered, COUNT(*) AS escape_count
 FROM animals WHERE escape_attempts>0
-GROUP BY
-neutered;
+GROUP BY neutered;
 
-select species,Min(weight_kg) AS min_weight,
+SELECT species,Min(weight_kg) AS min_weight,
 Max(weight_kg) AS max_weight
-from animals group by species;
+FROM animals GROUP BY species;
 
 SELECT AVG(escape_attempts) FROM animals WHERE
 EXTRACT (YEAR FROM date_of_birth) BETWEEN 1990 AND 2000;
 
-select name as Melody_Pond_Animals from animals Animal
+/*join queries */
+
+SELECT name AS Melody_PONd_Animals FROM animals Animal
 JOIN owners OwnerA ON Animal.owner_id = OwnerA.id
 where Animal.owner_id=4;
 
-select * from animals Animal
+SELECT * FROM animals Animal
 JOIN species Specie ON Animal.species_id = Specie.id
-where Specie.id=1; 
+where Specie.id=1;
 
-select full_name,name from animals Animal
+SELECT full_name,name FROM animals Animal
 FULL JOIN owners OwnerA ON Animal.owner_id = OwnerA.id;
 
-select species.name As Species,count(*) as Total_Per_Species
-from species
+SELECT species.name AS Species,count(*) AS Total_Per_Species
+FROM species
 JOIN animals ON animals.species_id = species.id
-group by species.name;
+GROUP BY species.name;
 
-select animals.name as Digimon,full_name as Digimon_Owner from animals
-join species
-on animals.species_id=species.id
-join owners on animals.owner_id=owners.id
-where owners.id=2 and animals.species_id=2;
+SELECT animals.name AS DigimON,full_name AS DigimON_Owner FROM animals
+JOIN species
+ON animals.species_id=species.id
+JOIN owners ON animals.owner_id=owners.id
+where owners.id=2 AND animals.species_id=2;
 
-select animals.name as Animal,full_name as Animal_Owner from animals
-join owners on animals.owner_id=owners.id
-where owners.id=5 and animals.escape_attempts=0;
+SELECT animals.name AS Animal,full_name AS Animal_Owner FROM animals
+JOIN owners ON animals.owner_id=owners.id
+where owners.id=5 AND animals.escape_attempts=0;
 
 
-select full_name,count(*) as Animals_Number  from animals
-join owners on animals.owner_id=owners.id
-group by (full_name) ORDER BY Animals_Number DESC;
+SELECT full_name,count(*) AS Animals_Number  FROM animals
+JOIN owners ON animals.owner_id=owners.id
+GROUP BY (full_name) ORDER BY Animals_Number DESC;

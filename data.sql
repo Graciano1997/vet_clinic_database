@@ -29,11 +29,11 @@ VALUES
 ('Pokemon'),
 ('Digimon');
 
-update animals set species_id=2 where name LIKE '%mon';
-update animals set species_id=1 where species_id IS NULL;
+UPDATE animals SET species_id=2 WHERE name LIKE '%mon';
+UPDATE animals SET species_id=1 WHERE species_id IS NULL;
 
-update animals set owner_id=1 where name like '%Agumon%';
-update animals set owner_id=2 where name like '%Gabumon%' or name like '%Pikachu%';
-update animals set owner_id=3 where name like '%Davimon%' or name like '%Plantmon%';
-update animals set owner_id=4 where name like '%Charmander%' or name like '%Squirtle%' or name like '%Blossom%';
-update animals set owner_id=5 where name like '%Angemon%' or name like '%Boarmon%';
+UPDATE animals SET owner_id=1 WHERE name LIKE '%Agumon%';
+UPDATE animals SET owner_id=2 WHERE name LIKE '%Gabumon%' OR name LIKE '%Pikachu%';
+UPDATE animals SET owner_id=3 WHERE name LIKE '%Davimon%' OR name LIKE '%Plantmon%';
+UPDATE animals SET owner_id=4 WHERE name LIKE '%Charmander%' OR name LIKE '%Squirtle%' OR name LIKE '%Blossom%';
+UPDATE animals SET owner_id=5 WHERE name LIKE '%Angemon%' OR name LIKE '%Boarmon%';
