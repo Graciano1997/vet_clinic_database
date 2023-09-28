@@ -61,3 +61,24 @@ where weight_kg<0;
 COMMIT;
 
 END;
+
+/*statistics queries*/
+
+SELECT count(*) AS Animals_number FROM animals;
+
+SELECT COUNT(*) As Never_scaped_animals_number FROM animals
+where escape_attempts=0;
+
+select AVG(weight_kg) AS Animals_weight_average from animals;
+
+SELECT neutered, COUNT(*) AS escape_count
+FROM animals WHERE escape_attempts>0
+GROUP BY
+neutered;
+
+select species,Min(weight_kg) AS min_weight,
+Max(weight_kg) AS max_weight
+from animals group by species;
+
+SELECT AVG(escape_attempts) FROM animals WHERE
+EXTRACT (YEAR FROM date_of_birth) BETWEEN 1990 AND 2000; 
