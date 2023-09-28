@@ -11,6 +11,9 @@ CREATE TABLE IF NOT EXISTS  animals (
 	PRIMARY KEY (id)
 );
 
-ALTER TABLE animals
-ADD COLUMN species varchar(200);
+CREATE TABLE IF NOT EXISTS owners(
+id SERIAL PRIMARY KEY,
+full_name VARCHAR(200),
+age integer
+);
 
