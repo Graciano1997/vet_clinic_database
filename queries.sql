@@ -99,7 +99,7 @@ FROM species
 JOIN animals ON animals.species_id = species.id
 GROUP BY species.name;
 
-SELECT animals.name AS DigimON,full_name AS DigimON_Owner FROM animals
+SELECT animals.name AS Digimon,full_name AS Digimon_Owner FROM animals
 JOIN species
 ON animals.species_id=species.id
 JOIN owners ON animals.owner_id=owners.id
