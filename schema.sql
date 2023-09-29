@@ -38,3 +38,37 @@ REFERENCES species(id),
 ADD CONSTRAINT fs_owner
 FOREIGN KEY(owner_id)
 REFERENCES owners(id);
+
+/* relashinsip */
+
+CREATE TABLE IF NOT EXISTS vets(
+id SERIAL PRIMARY KEY,
+name VARCHAR(200),
+age integer,
+date_of_graduation date
+);
+
+CREATE TABLE IF NOT EXISTS specializations(
+vet_id int,
+specie_id int,
+CONSTRAINT fk_vet
+FOREIGN KEY (vet_id)
+REFERENCES vets(id),
+CONSTRAINT fk_specie
+FOREIGN KEY(specie_id)
+REFERENCES species(id)
+);
+
+CREATE TABLE IF NOT EXISTS visits(
+vet_id int,
+animal_id int,
+CONSTRAINT fk_vet
+FOREIGN KEY (vet_id)
+REFERENCES vets(id),
+CONSTRAINT fk_animal
+FOREIGN KEY(animal_id)
+REFERENCES animals(id)
+);
+
+alter table visits
+add column date_of_visit date;

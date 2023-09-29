@@ -1,8 +1,7 @@
 <center>
-<h1>Vet clinic database: Query and multiple tables</h1>
+<h1>Vet clinic database: add "join table" for visits</h1>
 </center>
 <!-- TABLE OF CONTENTS -->
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -116,9 +115,7 @@ Example command:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[query and update animals table]**
-- [ ] **[add "join table" for visits]**
-- [ ] **[database performance audit]**
+- [ ] **[build a website]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
