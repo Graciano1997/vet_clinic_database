@@ -109,7 +109,6 @@ SELECT animals.name AS Animal,full_name AS Animal_Owner FROM animals
 JOIN owners ON animals.owner_id=owners.id
 where owners.id=5 AND animals.escape_attempts=0;
 
-
 SELECT full_name,count(*) AS Animals_Number  FROM animals
 JOIN owners ON animals.owner_id=owners.id
 GROUP BY (full_name) ORDER BY Animals_Number DESC;
