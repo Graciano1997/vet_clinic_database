@@ -70,5 +70,12 @@ FOREIGN KEY(animal_id)
 REFERENCES animals(id)
 );
 
+-- Add an email column to your owners table
 alter table visits
 add column date_of_visit date;
+
+ALTER TABLE visits RENAME COLUMN date_of_visit TO visit_date;
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX ON visits (animal_id);
+CREATE INDEX email_index ON owners (email);
